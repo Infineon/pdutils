@@ -1,12 +1,12 @@
 /***************************************************************************//**
 * \file cy_pdutils.h
-* \version 1.0
+* \version 1.10
 *
 * Provides general utility macros and definitions for the PDUtils middleware.
 *
 ********************************************************************************
 * \copyright
-* Copyright 2022, Cypress Semiconductor Corporation. All rights reserved.
+* Copyright 2022-2023, Cypress Semiconductor Corporation. All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
@@ -228,7 +228,7 @@
 *   </tr>
 *   <tr>
 *     <td>mtb-pdl-cat2</td>
-*     <td>2.1.0</td>
+*     <td>2.4.0</td>
 *   </tr>
 *   <tr>
 *     <td>GCC compiler</td>
@@ -250,6 +250,15 @@
 *
 * <table class="doxtable">
 *   <tr><th>Version</th><th>Changes</th><th>Reason for change</th></tr>
+*   <tr>
+*     <td rowspan="2">1.10</td>
+*     <td>Updates to support LF timer functionality</td>
+*     <td>New feature</td>
+*   </tr>
+*   <tr>
+*     <td>Fixes to SYSTICK timer functionality</td>
+*     <td>Bug fix</td>
+*   </tr>
 *   <tr>
 *     <td>1.0</td>
 *     <td>Initial version</td>
@@ -308,7 +317,7 @@
 #define CY_PDUTILS_MW_VERSION_MAJOR               (1)
 
 /** The PDUtils middleware minor version */
-#define CY_PDUTILS_MW_VERSION_MINOR               (0)
+#define CY_PDUTILS_MW_VERSION_MINOR               (10)
 
 /**  Get the maximum from among two numbers. */
 #define CY_PDUTILS_GET_MAX(a,b)    (((a) > (b)) ? (a) : (b))

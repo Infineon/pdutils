@@ -1,12 +1,12 @@
 /***************************************************************************//**
 * \file cy_pdutils_sw_timer.c
-* \version 1.0
+* \version 1.10
 *
 * Software timer source file.
 *
 ********************************************************************************
 * \copyright
-* Copyright 2022, Cypress Semiconductor Corporation. All rights reserved.
+* Copyright 2022-2023, Cypress Semiconductor Corporation. All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
@@ -215,12 +215,12 @@ void Cy_PdUtils_HwTimer_Start(cy_stc_pdutils_sw_timer_t *context)
     /* Load the timer match register. */
 #ifdef SRSSULT
     SRSSULT->wdt_match = (uint16_t)((SRSSULT->wdt_counter & CY_PDUTILS_WDT_COUNTER_COUNTER_MASK)
-            + gl_multiplier);
+            + context->multiplier);
 #else /* SRSSLT */
     SRSSLT->WDT_MATCH = (uint16_t)((SRSSLT->WDT_COUNTER & CY_PDUTILS_WDT_COUNTER_COUNTER_MASK)
-            + gl_multiplier);
+            + context->multiplier);
 #endif /* SRSS */
-    /* Wait for at least 3 LF cycles before the register write completes. */
+    /* Need to wait for at least 3 LF cycles before the register write completes. */
     Cy_SysLib_DelayUs(100);
 #endif /* (CY_PDUTILS_TIMER_TICKLESS_ENABLE == 0) */
 
@@ -228,10 +228,15 @@ void Cy_PdUtils_HwTimer_Start(cy_stc_pdutils_sw_timer_t *context)
     Cy_WDT_UnmaskInterrupt();
 #elif (CY_PDUTILS_TIMER_TYPE == CY_PDUTILS_TIMER_TYPE_PD_ILO)
 
+#if (CY_PDUTILS_TIMER_TICKLESS_ENABLE == 0)
     cy_stc_usbpd_context_t *ctx = (cy_stc_usbpd_context_t *)(context->hw_timer_context);
 
     ctx->base->lf_cntr_match = (uint16_t)((ctx->base->lf_cntr & PDSS_LF_CNTR_COUNTER_MASK)
             + context->multiplier);
+
+    /* Need to wait for at least 3 LF cycles before the register write completes. */
+    Cy_SysLib_DelayUs(100);
+#endif /* (CY_PDUTILS_TIMER_TICKLESS_ENABLE == 0) */
 
     /* Enable the LF interrupt. */
     Cy_LF_UnmaskInterrupt(context->hw_timer_context);
@@ -283,6 +288,7 @@ uint16_t Cy_PdUtils_HwTimer_GetCount(cy_stc_pdutils_sw_timer_t *context)
 #endif /* (CY_PDUTILS_TIMER_TYPE) */
 #else /* CY_PDUTILS_TIMER_TICKLESS_ENABLE == 0 */
     CY_UNUSED_PARAMETER(context);
+    return 0;
 #endif /* (CY_PDUTILS_TIMER_TICKLESS_ENABLE != 0) */
 }
 
@@ -313,6 +319,7 @@ void Cy_PdUtils_HwTimer_LoadPeriod(cy_stc_pdutils_sw_timer_t *context, uint16_t 
 #endif /* (CY_PDUTILS_TIMER_TICKLESS_ENABLE != 0) */
 }
 
+#if (CY_PDUTILS_TIMER_TICKLESS_ENABLE != 0)
 #if (!PAG2S_SROM_CODE || (PAG2S_SROM_CODE && GENERATE_SROM_CODE))
 TIMER_ATTRIBUTES static uint16_t Cy_PdUtils_HwTimer_GetTickInterval(uint16_t start, uint16_t current)
 {
@@ -330,6 +337,7 @@ TIMER_ATTRIBUTES static uint16_t Cy_PdUtils_HwTimer_GetTickInterval(uint16_t sta
     return (uint16_t)interval;
 }
 #endif /* (!PAG2S_SROM_CODE || (PAG2S_SROM_CODE && GENERATE_SROM_CODE)) */
+#endif /* (CY_PDUTILS_TIMER_TICKLESS_ENABLE != 0) */
 
 #if (!PAG2S_SROM_CODE || (PAG2S_SROM_CODE && GENERATE_SROM_CODE))
 TIMER_ATTRIBUTES void Cy_PdUtils_SwTimer_Init(cy_stc_pdutils_sw_timer_t *context, cy_stc_pdutils_timer_config_t *sw_timer_config)

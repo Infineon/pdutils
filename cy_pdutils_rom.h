@@ -1,12 +1,12 @@
 /***************************************************************************//**
 * \file cy_pdutils_rom.h
-* \version 1.0
+* \version 1.10
 *
 * Provides user ROM access.
 *
 ********************************************************************************
 * \copyright
-* Copyright 2022, Cypress Semiconductor Corporation. All rights reserved.
+* Copyright 2022-2023, Cypress Semiconductor Corporation. All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
