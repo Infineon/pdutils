@@ -150,7 +150,7 @@ Quick start guide</h1>
 </p><ol type="1">
 <li><p class="startli">Event management functions <br />
  An event group facilitates the management of a set of related tasks or status bits. The following APIs can be used to set, get, and clear events for a event group. Event groups are DWORD(uint32_t) variables that hold a set of request bits that can be set/cleared independently.</p>
-<p class="startli">Event group variable. </p><div class="fragment"><div class="line">    uint32_t eventMap = 0;</div></div><!-- fragment --><p> Setting a bit in an event group variable. </p><div class="fragment"><div class="line">    <a class="code" href="group__group__pdutils__functions.html#gaa55e12d2aa7db1c243e9490a6d4393ec">Cy_PdUtils_EventGroup_SetEvent</a>(&amp;eventMap, 4);</div></div><!-- fragment --><p> Setting one or more values in an event group variable. </p><div class="fragment"><div class="line">    <a class="code" href="group__group__pdutils__functions.html#gaf5106de063751245f77c1dd2a9e46c33">Cy_PdUtils_EventGroup_SetEventsByVal</a>(&amp;eventMap, 2);</div></div><!-- fragment --><p> Get the position of the event detected that needs to be processed. </p><div class="fragment"><div class="line">    evt = <a class="code" href="group__group__pdutils__functions.html#ga441687c9fcaf03d19433f63e2eefc6fe">Cy_PdUtils_EventGroup_GetEvent</a>(&amp;eventMap, <span class="keyword">true</span>);</div></div><!-- fragment --><p> Clears a bit in an event group variable. </p><div class="fragment"><div class="line">    <a class="code" href="group__group__pdutils__functions.html#ga36d8f790c715ec5b2121d29d85e7022a">Cy_PdUtils_EventGroup_ClearEvent</a>(&amp;eventMap, 1);</div></div><!-- fragment --><p> Clears one or more values in an event group variable. </p><div class="fragment"><div class="line">    <a class="code" href="group__group__pdutils__functions.html#ga5c3b14ac04e22df79ebd59fd3d36e01a">Cy_PdUtils_EventGroup_ClearEventsByVal</a>(&amp;eventMap, 16);</div></div><!-- fragment --></li>
+<p class="startli">Event group variable. </p><div class="fragment"><div class="line">    uint32_t eventMap = 0;</div></div><!-- fragment --><p> Setting a bit in an event group variable. </p><div class="fragment"><div class="line">    <a class="code" href="group__group__pdutils__functions.html#gaa55e12d2aa7db1c243e9490a6d4393ec">Cy_PdUtils_EventGroup_SetEvent</a>(&amp;eventMap, 4);</div></div><!-- fragment --><p> Setting one or more values in an event group variable. </p><div class="fragment"><div class="line">    <a class="code" href="group__group__pdutils__functions.html#gaf5106de063751245f77c1dd2a9e46c33">Cy_PdUtils_EventGroup_SetEventsByVal</a>(&amp;eventMap, 2);</div></div><!-- fragment --><p> Get the position of the event detected that needs to be processed. </p><div class="fragment"><div class="line">    evt = <a class="code" href="group__group__pdutils__functions.html#ga441687c9fcaf03d19433f63e2eefc6fe">Cy_PdUtils_EventGroup_GetEvent</a>(&amp;eventMap, <span class="keyword">true</span>);</div></div><!-- fragment --><p> Clears a bit in an event group variable. </p><div class="fragment"><div class="line">    <a class="code" href="group__group__pdutils__functions.html#ga36d8f790c715ec5b2121d29d85e7022a">Cy_PdUtils_EventGroup_ClearEvent</a>(&amp;eventMap, 1);</div></div><!-- fragment --><p> Clears one or more values in an event group variable. </p><div class="fragment"><div class="line">    <a class="code" href="group__group__pdutils__functions.html#ga5c3b14ac04e22df79ebd59fd3d36e01a">Cy_PdUtils_EventGroup_ClearEventsByVal</a>(&amp;eventMap, 16);</div></div><!-- fragment --><p> Checks whether a given event is set in an event group variable. </p><div class="fragment"><div class="line">    <a class="code" href="group__group__pdutils__functions.html#gad91da200b0efebb437d91c66400b5494">Cy_PdUtils_EventGroup_IsEventSet</a>(&amp;eventMap, 4);</div></div><!-- fragment --></li>
 <li>Other Utility functions <br />
  Computes the checksum (2's complement of the binary sum of all bytes) for the specified byte array. <div class="fragment"><div class="line">    byteChecksum = <a class="code" href="group__group__pdutils__functions.html#ga1095bbcc98179719876b79e66252b71f">Cy_PdUtils_MemCalculateByteChecksum</a>(&amp;byteData[0], 32);</div></div><!-- fragment --> <br />
  Computes the checksum (2's complement of the binary sum of all words) for the specified WORD array. <div class="fragment"><div class="line">    wordChecksum = <a class="code" href="group__group__pdutils__functions.html#gafb3b25099f6269513d16b161ab716a42">Cy_PdUtils_MemCalculateWordChecksum</a>(&amp;wordData[0], 32);</div></div><!-- fragment --> <br />
@@ -183,9 +183,9 @@ Supported software and tools</h1>
 <tr>
 <th>Software and tools </th><th>Version  </th></tr>
 <tr>
-<td>ModusToolbox(TM) software environment </td><td>3.0  </td></tr>
+<td>ModusToolbox(TM) software environment </td><td>3.1  </td></tr>
 <tr>
-<td>mtb-pdl-cat2 </td><td>2.4.0  </td></tr>
+<td>mtb-pdl-cat2 </td><td>2.8.0  </td></tr>
 <tr>
 <td>GCC compiler </td><td>10.3.1  </td></tr>
 <tr>
@@ -198,6 +198,8 @@ Changelog</h1>
 <table class="doxtable">
 <tr>
 <th>Version</th><th>Changes</th><th>Reason for change </th></tr>
+<tr>
+<td rowspan="1">1.20 </td><td>Added new utility API <a class="el" href="group__group__pdutils__functions.html#gad91da200b0efebb437d91c66400b5494" title="Checks whether the given event is set from an event group variable. ">Cy_PdUtils_EventGroup_IsEventSet()</a> to check if given event is set in an event group </td><td>New feature  </td></tr>
 <tr>
 <td rowspan="2">1.10 </td><td>Updates to support LF timer functionality </td><td>New feature  </td></tr>
 <tr>

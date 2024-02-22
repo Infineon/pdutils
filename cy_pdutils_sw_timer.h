@@ -1,12 +1,13 @@
 /***************************************************************************//**
 * \file cy_pdutils_sw_timer.h
-* \version 1.10
+* \version 1.20
 *
 * Provides API declarations of the software timer implementation.
 *
 ********************************************************************************
 * \copyright
-* Copyright 2022-2023, Cypress Semiconductor Corporation. All rights reserved.
+* Copyright 2022-2024, Cypress Semiconductor Corporation (an Infineon company)
+* or an affiliate of Cypress Semiconductor Corporation. All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.

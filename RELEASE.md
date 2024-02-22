@@ -1,15 +1,15 @@
-# PDUtils middleware library 1.10
+# PDUtils middleware library 1.20
 
 ### What's included?
 Please see the [README.md](./README.md).
 
 ### New features
 
-- Updated to support LF timer functionality.
+- Added a new API to check if given event is set in an event group.
 
 ### Defect fixes
 
-- Fixes to SYSTICK timer functionality.
+- None
 
 
 ### Supported software and tools
@@ -17,8 +17,8 @@ This version of the PDUtils middleware is validated for compatibility with the f
 
 | Software and tools                                      | Version |
 | :---                                                    | :----:  |
-| ModusToolbox(TM) software                               | 3.0     |
-| MTB CAT2 peripheral driver library (PDL)                | 2.4.0   |
+| ModusToolbox(TM) software                               | 3.1     |
+| MTB CAT2 peripheral driver library (PDL)                | 2.8.0   |
 | GCC compiler                                            | 10.3.1  |
 | IAR compiler                                            | 8.42.2  |
 | Arm(R) compiler                                         | 6.13    |
@@ -29,4 +29,4 @@ For more information, see the following documents:
 * [Infineon Technologies AG](https://www.infineon.com)
   
 ---
-© 2022-2023, Cypress Semiconductor Corporation (an Infineon company) or an affiliate of Cypress Semiconductor Corporation.
+© 2022-2024, Cypress Semiconductor Corporation (an Infineon company) or an affiliate of Cypress Semiconductor Corporation.

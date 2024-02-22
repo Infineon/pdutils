@@ -14,6 +14,7 @@ var group__group__pdutils__functions =
     [ "Cy_PdUtils_EventGroup_ClearEvent", "group__group__pdutils__functions.html#ga36d8f790c715ec5b2121d29d85e7022a", null ],
     [ "Cy_PdUtils_EventGroup_ClearEventsByVal", "group__group__pdutils__functions.html#ga5c3b14ac04e22df79ebd59fd3d36e01a", null ],
     [ "Cy_PdUtils_EventGroup_GetEvent", "group__group__pdutils__functions.html#ga441687c9fcaf03d19433f63e2eefc6fe", null ],
+    [ "Cy_PdUtils_EventGroup_IsEventSet", "group__group__pdutils__functions.html#gad91da200b0efebb437d91c66400b5494", null ],
     [ "Cy_PdUtils_SwTimer_Init", "group__group__pdutils__functions.html#ga9dbf2a3b9ab3bee2473a045c3764b098", null ],
     [ "Cy_PdUtils_SwTimer_Start", "group__group__pdutils__functions.html#ga908e17b45e1a49e977194b40d9edd7aa", null ],
     [ "Cy_PdUtils_SwTimer_StartWocb", "group__group__pdutils__functions.html#ga4cf63eb6183e67d5e079ccdfd427d654", null ],

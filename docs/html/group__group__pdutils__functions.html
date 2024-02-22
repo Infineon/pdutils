@@ -139,6 +139,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ga441687c9fcaf03d19433f63e2eefc6fe"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__pdutils__functions.html#ga441687c9fcaf03d19433f63e2eefc6fe">Cy_PdUtils_EventGroup_GetEvent</a> (volatile uint32_t *event_map, bool clr_stat)</td></tr>
 <tr class="memdesc:ga441687c9fcaf03d19433f63e2eefc6fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the next pending event/task from an event group variable.  <a href="#ga441687c9fcaf03d19433f63e2eefc6fe">More...</a><br /></td></tr>
 <tr class="separator:ga441687c9fcaf03d19433f63e2eefc6fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad91da200b0efebb437d91c66400b5494"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__pdutils__functions.html#gad91da200b0efebb437d91c66400b5494">Cy_PdUtils_EventGroup_IsEventSet</a> (volatile uint32_t *event_map, uint8_t event_sel)</td></tr>
+<tr class="memdesc:gad91da200b0efebb437d91c66400b5494"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the given event is set from an event group variable.  <a href="#gad91da200b0efebb437d91c66400b5494">More...</a><br /></td></tr>
+<tr class="separator:gad91da200b0efebb437d91c66400b5494"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga9dbf2a3b9ab3bee2473a045c3764b098"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__pdutils__functions.html#ga9dbf2a3b9ab3bee2473a045c3764b098">Cy_PdUtils_SwTimer_Init</a> (<a class="el" href="group__group__pdutils__data__structures.html#structcy__stc__pdutils__sw__timer__t">cy_stc_pdutils_sw_timer_t</a> *context, <a class="el" href="group__group__pdutils__data__structures.html#structcy__stc__pdutils__timer__config__t">cy_stc_pdutils_timer_config_t</a> *sw_timer_config)</td></tr>
 <tr class="memdesc:ga9dbf2a3b9ab3bee2473a045c3764b098"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the software timer module.  <a href="#ga9dbf2a3b9ab3bee2473a045c3764b098">More...</a><br /></td></tr>
 <tr class="separator:ga9dbf2a3b9ab3bee2473a045c3764b098"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -752,6 +755,44 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>uint8_t Position of the event/task which has been detected and needs to be processed. </dd></dl>
+
+</div>
+</div>
+<a id="gad91da200b0efebb437d91c66400b5494"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad91da200b0efebb437d91c66400b5494">&#9670;&nbsp;</a></span>Cy_PdUtils_EventGroup_IsEventSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Cy_PdUtils_EventGroup_IsEventSet </td>
+          <td>(</td>
+          <td class="paramtype">volatile uint32_t *&#160;</td>
+          <td class="paramname"><em>event_map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>event_sel</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks whether the given event is set from an event group variable. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event_map</td><td>Original status of the event group.</td></tr>
+    <tr><td class="paramname">event_sel</td><td>Specifies the event to be checked.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>bool True if the event is set. False if the event is not set. </dd></dl>
 
 </div>
 </div>

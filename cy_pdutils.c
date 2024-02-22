@@ -1,12 +1,13 @@
 /***************************************************************************//**
 * \file cy_pdutils.c
-* \version 1.10
+* \version 1.20
 *
 * Provides general utility macros and definitions for the PDUtils middleware.
 *
 ********************************************************************************
 * \copyright
-* Copyright 2022-2023, Cypress Semiconductor Corporation. All rights reserved.
+* Copyright 2022-2024, Cypress Semiconductor Corporation (an Infineon company)
+* or an affiliate of Cypress Semiconductor Corporation. All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
@@ -229,6 +230,23 @@ UTILS_ATTRIBUTES uint8_t Cy_PdUtils_EventGroup_GetEvent(volatile uint32_t *event
                     break;
                 }
             }
+        }
+    }
+
+    SYS_CALL_MAP(Cy_SysLib_ExitCriticalSection)(int_status);
+    return (ret);
+}
+
+UTILS_ATTRIBUTES bool Cy_PdUtils_EventGroup_IsEventSet(volatile uint32_t *event_map, uint8_t event_sel)
+{
+    uint32_t  int_status = SYS_CALL_MAP(Cy_SysLib_EnterCriticalSection)();
+    bool  ret = false;
+
+    if ((event_map != NULL) && (event_sel <= CY_PDUTILS_MAX_EVENT_INDEX))
+    {
+        if ((*event_map & (uint32_t)(1UL << event_sel)) != 0U)
+        {
+            ret = true;
         }
     }
 

@@ -1,12 +1,13 @@
 /***************************************************************************//**
 * \file cy_pdutils.h
-* \version 1.10
+* \version 1.20
 *
 * Provides general utility macros and definitions for the PDUtils middleware.
 *
 ********************************************************************************
 * \copyright
-* Copyright 2022-2023, Cypress Semiconductor Corporation. All rights reserved.
+* Copyright 2022-2024, Cypress Semiconductor Corporation (an Infineon company)
+* or an affiliate of Cypress Semiconductor Corporation. All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
@@ -161,6 +162,9 @@
 *
 *   Clears one or more values in an event group variable.
 *   \snippet snippet/main.c snippet_configuration_utils_evt_clrval
+*
+*   Checks whether a given event is set in an event group variable.
+*   \snippet snippet/main.c snippet_configuration_utils_is_evt_set
 * -# Other Utility functions
 * <br>
 *   Computes the checksum (2's complement of the binary sum
@@ -224,11 +228,11 @@
 *   </tr>
 *   <tr>
 *     <td>ModusToolbox(TM) software environment</td>
-*     <td>3.0</td>
+*     <td>3.1</td>
 *   </tr>
 *   <tr>
 *     <td>mtb-pdl-cat2</td>
-*     <td>2.4.0</td>
+*     <td>2.8.0</td>
 *   </tr>
 *   <tr>
 *     <td>GCC compiler</td>
@@ -250,6 +254,11 @@
 *
 * <table class="doxtable">
 *   <tr><th>Version</th><th>Changes</th><th>Reason for change</th></tr>
+*   <tr>
+*     <td rowspan="1">1.20</td>
+*     <td>Added new utility API Cy_PdUtils_EventGroup_IsEventSet() to check if given event is set in an event group</td>
+*     <td>New feature</td>
+*   </tr>
 *   <tr>
 *     <td rowspan="2">1.10</td>
 *     <td>Updates to support LF timer functionality</td>
@@ -317,7 +326,7 @@
 #define CY_PDUTILS_MW_VERSION_MAJOR               (1)
 
 /** The PDUtils middleware minor version */
-#define CY_PDUTILS_MW_VERSION_MINOR               (10)
+#define CY_PDUTILS_MW_VERSION_MINOR               (20)
 
 /**  Get the maximum from among two numbers. */
 #define CY_PDUTILS_GET_MAX(a,b)    (((a) > (b)) ? (a) : (b))
@@ -675,6 +684,25 @@ void Cy_PdUtils_EventGroup_ClearEventsByVal(uint32_t *event_map, uint32_t event_
 *
 *******************************************************************************/
 uint8_t Cy_PdUtils_EventGroup_GetEvent(volatile uint32_t *event_map, bool clr_stat);
+
+/*******************************************************************************
+* Function name: Cy_PdUtils_EventGroup_IsEventSet
+****************************************************************************//**
+*
+* Checks whether the given event is set from an event group variable.
+*
+* \param event_map
+* Original status of the event group.
+*
+* \param event_sel
+* Specifies the event to be checked.
+*
+* \return bool
+* True if the event is set.
+* False if the event is not set.
+*
+*******************************************************************************/
+bool Cy_PdUtils_EventGroup_IsEventSet(volatile uint32_t *event_map, uint8_t event_sel);
 
 /** \} group_pdutils_functions */
 

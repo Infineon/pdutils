@@ -1,4 +1,4 @@
-# PDUtils middleware library 1.10
+# PDUtils middleware library 1.20
 
 ### Overview
 
@@ -20,4 +20,4 @@ The following resources contain more information:
 * [Infineon Technologies AG](https://www.infineon.com)
 
 ---
-© 2022-2023, Cypress Semiconductor Corporation (an Infineon company) or an affiliate of Cypress Semiconductor Corporation.
+© 2022-2024, Cypress Semiconductor Corporation (an Infineon company) or an affiliate of Cypress Semiconductor Corporation.
