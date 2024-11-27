@@ -12,6 +12,9 @@ var group__group__pdutils__enums =
       [ "CY_PDUTILS_I2C_SLAVE_SCB6_TIMER", "group__group__pdutils__enums.html#gga859841436b017fd4da84d4d9a15a3fbba61478f74859bccf161d70d86d03be8ce", null ],
       [ "CY_PDUTILS_I2C_SLAVE_SCB7_TIMER", "group__group__pdutils__enums.html#gga859841436b017fd4da84d4d9a15a3fbba724c47d1516391421558c5b4561134e9", null ],
       [ "CY_PDUTILS_CCG_ACTIVITY_TIMER", "group__group__pdutils__enums.html#gga859841436b017fd4da84d4d9a15a3fbba9f1e9ec1623465b2eccae784f9cbcd89", null ],
-      [ "CY_PDUTILS_SYS_DEEPSLEEP_TIMER", "group__group__pdutils__enums.html#gga859841436b017fd4da84d4d9a15a3fbba433597f15f0aa467b8e4e641cf10bde0", null ]
+      [ "CY_PDUTILS_SYS_DEEPSLEEP_TIMER", "group__group__pdutils__enums.html#gga859841436b017fd4da84d4d9a15a3fbba433597f15f0aa467b8e4e641cf10bde0", null ],
+      [ "CY_PDUTILS_HPI_SOFT_RESET_TIMER", "group__group__pdutils__enums.html#gga859841436b017fd4da84d4d9a15a3fbba3507da6bb687a4c950905c27daeee77d", null ],
+      [ "CY_PDUTILS_BOOTWAIT_WINDOW_TIMER", "group__group__pdutils__enums.html#gga859841436b017fd4da84d4d9a15a3fbbaf45d19f29552342fe845938542d8a87d", null ],
+      [ "CY_PDUTILS_UCSI_DPM_RETRY_TIMER", "group__group__pdutils__enums.html#gga859841436b017fd4da84d4d9a15a3fbba1699541c18f07c93212a60449f9bac8d", null ]
     ] ]
 ];

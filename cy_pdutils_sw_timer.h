@@ -1,6 +1,6 @@
 /***************************************************************************//**
 * \file cy_pdutils_sw_timer.h
-* \version 1.20
+* \version 1.30
 *
 * Provides API declarations of the software timer implementation.
 *
@@ -60,7 +60,9 @@
 
 /** Enable the calibration sample time of 1 ms. If this macro is set to '1', then
  * calibration is done for a sample time of 1 ms, otherwise for a sample time of 10 ms. */
+#ifndef CY_PDUTILS_TIMER_CALIB_SAMPLE_TIME_1MS
 #define CY_PDUTILS_TIMER_CALIB_SAMPLE_TIME_1MS     (0u)
+#endif /* CY_PDUTILS_TIMER_CALIB_SAMPLE_TIME_1MS */
 
 /** Macro to control whether to use a tickless timer. */
 #ifndef CY_PDUTILS_TIMER_TICKLESS_ENABLE
@@ -76,13 +78,6 @@
  */
 #define CY_PDUTILS_TIMER_HW_MAX_TIMEOUT            (0xFFC0u)
 
-/**
- * Time covers the worst-case interrupt latency
- * for the timer interrupt handler. Considering the worst
- * case timing of 100 us.
- */
-#define CY_PDUTILS_TIMER_OVERRUN_THRESHOLD         (5u)
-
 /** Timer counter size in the number of ticks. */
 #define CY_PDUTILS_TIMER_NUM_TICK_COUNTS           (0x10000u)
 
@@ -91,8 +86,9 @@
 /** Number of soft timers supported per instance of the timer module. The
    number of instances depends on the number of USB PD ports supported by
    the device. */
+#ifndef CY_PDUTILS_TIMER_NUM_TIMERS
 #define CY_PDUTILS_TIMER_NUM_TIMERS                (63u)
-
+#endif /* CY_PDUTILS_TIMER_NUM_TIMERS */
 
 /** Maximum timeout value in milliseconds supported by the module. */
 #define CY_PDUTILS_TIMER_MAX_TIMEOUT               (0xFFFF)
@@ -180,7 +176,15 @@ typedef enum {
     
     CY_PDUTILS_SYS_DEEPSLEEP_TIMER,
     /**< 0x00B: System Deep Sleep timer. */
+
+    CY_PDUTILS_HPI_SOFT_RESET_TIMER,
+     /**< 0x00C: HPI SOFT RESET timer. */
+
+    CY_PDUTILS_BOOTWAIT_WINDOW_TIMER,
+     /**< 0x00D: Boot wait window timer. */
     
+    CY_PDUTILS_UCSI_DPM_RETRY_TIMER
+    /**< 0x00E: UCSI DPM retry timer. */
 } cy_en_device_timer_id_t;
 
 /** \} group_pdutils_enums */
@@ -290,6 +294,9 @@ typedef struct
 
     /** Pointer to the HW timer context */
     void *hw_timer_context;
+
+    /** Timer overrun threshold */
+    uint8_t overrun_threshold;
 
 } cy_stc_pdutils_sw_timer_t;
 

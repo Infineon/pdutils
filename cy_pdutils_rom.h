@@ -1,6 +1,6 @@
 /***************************************************************************//**
 * \file cy_pdutils_rom.h
-* \version 1.20
+* \version 1.30
 *
 * Provides user ROM access.
 *
@@ -21,12 +21,7 @@
 
 #define UTILS_ATTRIBUTES __attribute__ ((section (".sromCode"))) __attribute__((used))  __attribute__((noinline))
 
-#elif (PAG2S_SROM_CODE && CCG_SROM_CODE_ENABLE)
-
-/* To generate the SROM code, then include the corresponding device SROM header file. */
-#include "srom_vars_pag2s.h"
-
-#endif /* CCGX_ROM_CODE */
+#endif /* defined PMG1S3_SROM_CODE */
 
 #ifndef TIMER_ATTRIBUTES
 #define TIMER_ATTRIBUTES

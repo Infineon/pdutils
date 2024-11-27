@@ -1,11 +1,12 @@
-# PDUtils middleware library 1.20
+# PDUtils middleware library 1.30
 
 ### What's included?
 Please see the [README.md](./README.md).
 
 ### New features
 
-- Added a new API to check if given event is set in an event group.
+- Allocated timer ids for HPI, bootloader and UCSI.
+- Minor timer calibration improvements.
 
 ### Defect fixes
 
@@ -17,8 +18,8 @@ This version of the PDUtils middleware is validated for compatibility with the f
 
 | Software and tools                                      | Version |
 | :---                                                    | :----:  |
-| ModusToolbox(TM) software                               | 3.1     |
-| MTB CAT2 peripheral driver library (PDL)                | 2.8.0   |
+| ModusToolbox(TM) software                               | 3.3     |
+| MTB CAT2 peripheral driver library (PDL)                | 2.13.0   |
 | GCC compiler                                            | 10.3.1  |
 | IAR compiler                                            | 8.42.2  |
 | Arm(R) compiler                                         | 6.13    |

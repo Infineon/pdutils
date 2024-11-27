@@ -1,6 +1,6 @@
 /***************************************************************************//**
 * \file cy_pdutils.h
-* \version 1.20
+* \version 1.30
 *
 * Provides general utility macros and definitions for the PDUtils middleware.
 *
@@ -228,11 +228,11 @@
 *   </tr>
 *   <tr>
 *     <td>ModusToolbox(TM) software environment</td>
-*     <td>3.1</td>
+*     <td>3.3</td>
 *   </tr>
 *   <tr>
 *     <td>mtb-pdl-cat2</td>
-*     <td>2.8.0</td>
+*     <td>2.13.0</td>
 *   </tr>
 *   <tr>
 *     <td>GCC compiler</td>
@@ -254,6 +254,11 @@
 *
 * <table class="doxtable">
 *   <tr><th>Version</th><th>Changes</th><th>Reason for change</th></tr>
+*   <tr>
+*     <td rowspan="1">1.30</td>
+*     <td>Allocated timer ids for HPI, bootloader and UCSI. Minor timer calibration improvements.</td>
+*     <td>New feature</td>
+*   </tr>
 *   <tr>
 *     <td rowspan="1">1.20</td>
 *     <td>Added new utility API Cy_PdUtils_EventGroup_IsEventSet() to check if given event is set in an event group</td>
@@ -326,7 +331,7 @@
 #define CY_PDUTILS_MW_VERSION_MAJOR               (1)
 
 /** The PDUtils middleware minor version */
-#define CY_PDUTILS_MW_VERSION_MINOR               (20)
+#define CY_PDUTILS_MW_VERSION_MINOR               (30)
 
 /**  Get the maximum from among two numbers. */
 #define CY_PDUTILS_GET_MAX(a,b)    (((a) > (b)) ? (a) : (b))
@@ -357,25 +362,25 @@
 #define CY_PDUTILS_WORD_GET_MSB(w)         ((uint8_t)((w) >> 8))
 
 /** Retrieve the LSB from a WORD. */
-#define CY_PDUTILS_WORD_GET_LSB(w)         ((uint8_t)((w) & 0xFF))
+#define CY_PDUTILS_WORD_GET_LSB(w)         ((uint8_t)((w) & 0xFFU))
 
 /** Retrieve the upper nibble from a byte. */
-#define CY_PDUTILS_BYTE_GET_UPPER_NIBBLE(w)         ((uint8_t)(((w) >> 4) & 0xF))
+#define CY_PDUTILS_BYTE_GET_UPPER_NIBBLE(w)         ((uint8_t)(((w) >> 4) & 0xFU))
 
 /** Retrieve the lower nibble from a byte. */
-#define CY_PDUTILS_BYTE_GET_LOWER_NIBBLE(w)         ((uint8_t)((w) & 0xF))
+#define CY_PDUTILS_BYTE_GET_LOWER_NIBBLE(w)         ((uint8_t)((w) & 0xFU))
 
 /** Retrieve the LSB from a DWORD. */
-#define CY_PDUTILS_DWORD_GET_BYTE0(dw)     ((uint8_t)((dw) & 0xFF))
+#define CY_PDUTILS_DWORD_GET_BYTE0(dw)     ((uint8_t)((dw) & 0xFFU))
 
 /** Retrieve the bits 15-8 from a DWORD. */
-#define CY_PDUTILS_DWORD_GET_BYTE1(dw)     ((uint8_t)(((dw) >> 8) & 0xFF))
+#define CY_PDUTILS_DWORD_GET_BYTE1(dw)     ((uint8_t)(((dw) >> 8) & 0xFFU))
 
 /** Retrieve the bits 23-16 from a DWORD. */
-#define CY_PDUTILS_DWORD_GET_BYTE2(dw)     ((uint8_t)(((dw) >> 16) & 0xFF))
+#define CY_PDUTILS_DWORD_GET_BYTE2(dw)     ((uint8_t)(((dw) >> 16) & 0xFFU))
 
 /** Retrieve the MSB from a DWORD. */
-#define CY_PDUTILS_DWORD_GET_BYTE3(dw)     ((uint8_t)(((dw) >> 24) & 0xFF))
+#define CY_PDUTILS_DWORD_GET_BYTE3(dw)     ((uint8_t)(((dw) >> 24) & 0xFFU))
 
 /** Memcpy abstraction macro. */
 #define CY_PDUTILS_MEM_COPY(dest, src, size)               memcpy ((uint8_t *)(dest), (uint8_t *)(src), (size))
@@ -405,7 +410,6 @@
         | ( (uint32_t) (b)[(i) + 1] << 16 )             \
         | ( (uint32_t) (b)[(i) + 2] <<  8 )             \
         | ( (uint32_t) (b)[(i) + 3]       );            \
-
 
 /** \} group_pdutils_macros */
 

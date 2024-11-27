@@ -33,7 +33,6 @@ var group__group__pdutils__macros =
     [ "CY_PDUTILS_TIMER_CALIB_SAMPLE_TIME_1MS", "group__group__pdutils__macros.html#ga2aec241b40d589e6a09870bcd1727ccd", null ],
     [ "CY_PDUTILS_TIMER_TICKLESS_ENABLE", "group__group__pdutils__macros.html#gadc9fb401ba87961d112282b5ad3a2dd3", null ],
     [ "CY_PDUTILS_TIMER_HW_MAX_TIMEOUT", "group__group__pdutils__macros.html#ga1049a3c72fc7a1bd9131c1fce9f91d9d", null ],
-    [ "CY_PDUTILS_TIMER_OVERRUN_THRESHOLD", "group__group__pdutils__macros.html#gaa5273833419eeb081a230e281674451f", null ],
     [ "CY_PDUTILS_TIMER_NUM_TICK_COUNTS", "group__group__pdutils__macros.html#ga607af3956cc2b35c958f0a9028415a1a", null ],
     [ "CY_PDUTILS_TIMER_NUM_TIMERS", "group__group__pdutils__macros.html#gabde9088bbd2de51d6548667505a80a8c", null ],
     [ "CY_PDUTILS_TIMER_MAX_TIMEOUT", "group__group__pdutils__macros.html#ga77f65926e65589d939629f21ae474b8c", null ],

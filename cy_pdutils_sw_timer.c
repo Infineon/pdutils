@@ -1,6 +1,6 @@
 /***************************************************************************//**
 * \file cy_pdutils_sw_timer.c
-* \version 1.20
+* \version 1.30
 *
 * Software timer source file.
 *
@@ -86,7 +86,13 @@ static void Cy_PdUtils_SwTimer_WdtCalibrate(cy_stc_pdutils_sw_timer_t *context)
     /* Store the value for reload. */
     context->multiplier = (uint16_t)(end_count - start_count);
 
-    Cy_SysTick_Disable() ;
+#if (CY_PDUTILS_TIMER_CALIB_SAMPLE_TIME_1MS != 1u)
+    context->overrun_threshold = (context->multiplier / 50);
+#else
+    context->overrun_threshold = (context->multiplier / 5);
+#endif /* (CY_PDUTILS_TIMER_CALIB_SAMPLE_TIME_1MS != 1u) */
+
+    Cy_SysTick_Disable();
 }
 #endif /* (CY_PDUTILS_TIMER_TYPE == CY_PDUTILS_TIMER_TYPE_WDT) */
 
@@ -110,11 +116,29 @@ static void Cy_PdUtils_SwTimer_LfCalibrate(cy_stc_pdutils_sw_timer_t *context)
     Cy_SysTick_Clear();
 
 #if (CY_PDUTILS_TIMER_CALIB_SAMPLE_TIME_1MS != 1u)
-    /* Load 10 ms timeout. */
+    /* Load 10ms timeout. */
+    /* In bootloader mode, using an approximate value for the Systick load function 
+     * Instead of using a division operation, shifting by 10 to divide by 1024.
+     * This saves 300 Bytes in FLASH and since bootloader is not expected to be compliant,
+     * the slight inaccuracy should not affect standard operation.
+     */
+#if !CCG_BOOT
     Cy_SysTick_SetReload((context->sys_clk_freq * 10u/ 1000u) - 1u);
 #else
-    /* Load 1 ms timeout. */
+    Cy_SysTick_SetReload(((context->sys_clk_freq * 10u) >> 10u) - 1u);
+#endif /* !CCG_BOOT */
+#else
+#if !CCG_BOOT
+    /* Load 1ms timeout. */
+     /* In bootloader mode, using an approximate value for the Systick load function 
+     * Instead of using a division operation, shifting by 10 to divide by 1024.
+     * This saves 300 Bytes in FLASH and since bootloader is not expected to be compliant,
+     * the slight inaccuracy should not affect standard operation.
+     */
     Cy_SysTick_SetReload((context->sys_clk_freq / 1000u) - 1u);
+#else
+    Cy_SysTick_SetReload((context->sys_clk_freq >> 10u) - 1u);
+#endif /* !CCG_BOOT */
 #endif /* (CY_PDUTILS_TIMER_CALIB_SAMPLE_TIME_1MS != 1u) */
 
     Cy_SysTick_SetClockSource(CY_SYSTICK_CLOCK_SOURCE_CLK_CPU);
@@ -153,6 +177,13 @@ static void Cy_PdUtils_SwTimer_LfCalibrate(cy_stc_pdutils_sw_timer_t *context)
     }
     /* Store the value for reload. */
     context->multiplier = (uint16_t)(end_count - start_count);
+
+#if (CY_PDUTILS_TIMER_CALIB_SAMPLE_TIME_1MS != 1u)
+    context->overrun_threshold = (context->multiplier / 50);
+#else
+    context->overrun_threshold = (context->multiplier / 5);
+#endif /* (CY_PDUTILS_TIMER_CALIB_SAMPLE_TIME_1MS != 1u) */
+
     Cy_SysTick_Disable();
 }
 #endif /* (CY_PDUTILS_TIMER_TYPE == CY_PDUTILS_TIMER_TYPE_PD_ILO) */
@@ -177,6 +208,7 @@ void Cy_PdUtils_HwTimer_Init(cy_stc_pdutils_sw_timer_t *context)
 
     /* Calibrate the WDT timer. */
     Cy_PdUtils_SwTimer_WdtCalibrate (context);
+
 #elif (CY_PDUTILS_TIMER_TYPE == CY_PDUTILS_TIMER_TYPE_PD_ILO)
 
     /* Disable the LF timer interrupts. */
@@ -299,10 +331,6 @@ void Cy_PdUtils_HwTimer_LoadPeriod(cy_stc_pdutils_sw_timer_t *context, uint16_t 
 #if (CY_PDUTILS_TIMER_TICKLESS_ENABLE != 0)
 #if (CY_PDUTILS_TIMER_TYPE == CY_PDUTILS_TIMER_TYPE_WDT)
 
-    if (Cy_WDT_GetMatch() != context->match)
-    {
-        Cy_SysLib_DelayUs(100);
-    }
     Cy_WDT_SetMatch(period);
     context->match = period;
 #elif (CY_PDUTILS_TIMER_TYPE == CY_PDUTILS_TIMER_TYPE_PD_ILO)
@@ -518,7 +546,7 @@ TIMER_ATTRIBUTES bool Cy_PdUtils_SwTimer_Start(cy_stc_pdutils_sw_timer_t *contex
                         cur_count);
                 p_timer_handle[index].count += count;
 
-                if (p_timer_handle[index].count < context->tick_time)
+                if ((p_timer_handle[index].count + context->overrun_threshold) < context->tick_time)
                 {
                     /*
                      * It is safe to load the timer here as it is
@@ -527,7 +555,6 @@ TIMER_ATTRIBUTES bool Cy_PdUtils_SwTimer_Start(cy_stc_pdutils_sw_timer_t *contex
                      * count is less than the maximum value allowed.
                      */
                     context->tick_time = (uint16_t)(p_timer_handle[index].count);
-
 
                     TIMER_CALL_MAP(Cy_PdUtils_HwTimer_LoadPeriod) (context, (uint16_t) (context->start_tick +
                                                                 context->tick_time));
@@ -867,7 +894,7 @@ TIMER_ATTRIBUTES void Cy_PdUtils_SwTimer_InterruptHandler(cy_stc_pdutils_sw_time
 #if (CY_PDUTILS_TIMER_TICKLESS_ENABLE != 0)
                         /* Decrement the counters. */
                         if (p_timer_handle[index].count >
-                                (interval + CY_PDUTILS_TIMER_OVERRUN_THRESHOLD))
+                                (interval + context->overrun_threshold))
                         {
                             p_timer_handle[index].count -= interval;
                         }
@@ -936,7 +963,7 @@ TIMER_ATTRIBUTES void Cy_PdUtils_SwTimer_InterruptHandler(cy_stc_pdutils_sw_time
                     TIMER_CALL_MAP(Cy_PdUtils_HwTimer_GetCount)(context));
         }
 
-    } while (period < (interval + CY_PDUTILS_TIMER_OVERRUN_THRESHOLD));
+    } while (period < (interval + context->overrun_threshold));
 
     /*
      * Load the timer with the required period. The value is intentionally

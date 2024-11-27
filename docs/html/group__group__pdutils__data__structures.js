@@ -18,7 +18,8 @@ var group__group__pdutils__data__structures =
       [ "num_active", "group__group__pdutils__data__structures.html#a2f6ecdd2460f2a006ba3ecb5a9595aa3", null ],
       [ "total_active", "group__group__pdutils__data__structures.html#ab169563d18148ef1b1925fd79a8d8b03", null ],
       [ "is_callback", "group__group__pdutils__data__structures.html#a8c7c84b6eb0cca4d5a1378d7c8dd6bb4", null ],
-      [ "hw_timer_context", "group__group__pdutils__data__structures.html#ad4994cb892b3ae0743b0b9e8cb35bab9", null ]
+      [ "hw_timer_context", "group__group__pdutils__data__structures.html#ad4994cb892b3ae0743b0b9e8cb35bab9", null ],
+      [ "overrun_threshold", "group__group__pdutils__data__structures.html#aa6854eaba6787bfe9115ab2fe170c111", null ]
     ] ],
     [ "cy_stc_pdutils_timer_config_t", "group__group__pdutils__data__structures.html#structcy__stc__pdutils__timer__config__t", [
       [ "sys_clk_freq", "group__group__pdutils__data__structures.html#ae686eabd0cabeb5ebb8b72f436ae5220", null ],

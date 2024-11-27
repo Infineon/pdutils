@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['tick_5ftime',['tick_time',['../group__group__pdutils__data__structures.html#a2bb45637e280432b770c99774836505e',1,'cy_stc_pdutils_sw_timer_t']]],
-  ['timer_5fhandle',['timer_handle',['../group__group__pdutils__data__structures.html#af3ac08bc90cb6c092f1d389fd7e70f21',1,'cy_stc_pdutils_sw_timer_t']]],
-  ['timer_5findex_5fstatus',['timer_index_status',['../group__group__pdutils__data__structures.html#aecb35f5e15428864ea0f8414b2eadedb',1,'cy_stc_pdutils_sw_timer_t']]],
-  ['total_5factive',['total_active',['../group__group__pdutils__data__structures.html#ab169563d18148ef1b1925fd79a8d8b03',1,'cy_stc_pdutils_sw_timer_t']]]
+  ['start_5ftick',['start_tick',['../group__group__pdutils__data__structures.html#a61f9d22f4f7a3041cbd0e4435741a17c',1,'cy_stc_pdutils_sw_timer_t']]],
+  ['sys_5fclk_5ffreq',['sys_clk_freq',['../group__group__pdutils__data__structures.html#aaed681d4a3f2063bc20cd692f3add909',1,'cy_stc_pdutils_sw_timer_t::sys_clk_freq()'],['../group__group__pdutils__data__structures.html#ae686eabd0cabeb5ebb8b72f436ae5220',1,'cy_stc_pdutils_timer_config_t::sys_clk_freq()']]]
 ];

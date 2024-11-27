@@ -1,6 +1,6 @@
 /***************************************************************************//**
 * \file cy_pdutils.c
-* \version 1.20
+* \version 1.30
 *
 * Provides general utility macros and definitions for the PDUtils middleware.
 *

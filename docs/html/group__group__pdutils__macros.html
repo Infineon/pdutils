@@ -102,7 +102,7 @@ Macros</h2></td></tr>
 <tr class="memdesc:ga85d11bcadd35772252f25a243dc420ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">The PDUtils middleware major version. <br /></td></tr>
 <tr class="separator:ga85d11bcadd35772252f25a243dc420ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5c67a0090a6f1931cb1440e278fcc184"><td class="memItemLeft" align="right" valign="top"><a id="ga5c67a0090a6f1931cb1440e278fcc184"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__pdutils__macros.html#ga5c67a0090a6f1931cb1440e278fcc184">CY_PDUTILS_MW_VERSION_MINOR</a>&#160;&#160;&#160;(20)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__pdutils__macros.html#ga5c67a0090a6f1931cb1440e278fcc184">CY_PDUTILS_MW_VERSION_MINOR</a>&#160;&#160;&#160;(30)</td></tr>
 <tr class="memdesc:ga5c67a0090a6f1931cb1440e278fcc184"><td class="mdescLeft">&#160;</td><td class="mdescRight">The PDUtils middleware minor version. <br /></td></tr>
 <tr class="separator:ga5c67a0090a6f1931cb1440e278fcc184"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gadd84d397c97e6b4b3ca4b734d761aeea"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__pdutils__macros.html#gadd84d397c97e6b4b3ca4b734d761aeea">CY_PDUTILS_GET_MAX</a>(a,  b)&#160;&#160;&#160;(((a) &gt; (b)) ? (a) : (b))</td></tr>
@@ -129,25 +129,25 @@ Macros</h2></td></tr>
 <tr class="memitem:ga8314da93104f3538f4d33bf4bbda2c35"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__pdutils__macros.html#ga8314da93104f3538f4d33bf4bbda2c35">CY_PDUTILS_WORD_GET_MSB</a>(w)&#160;&#160;&#160;((uint8_t)((w) &gt;&gt; 8))</td></tr>
 <tr class="memdesc:ga8314da93104f3538f4d33bf4bbda2c35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve the MSB from a WORD.  <a href="#ga8314da93104f3538f4d33bf4bbda2c35">More...</a><br /></td></tr>
 <tr class="separator:ga8314da93104f3538f4d33bf4bbda2c35"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga51575fca3165cdb022ed8ee0f12d8360"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__pdutils__macros.html#ga51575fca3165cdb022ed8ee0f12d8360">CY_PDUTILS_WORD_GET_LSB</a>(w)&#160;&#160;&#160;((uint8_t)((w) &amp; 0xFF))</td></tr>
+<tr class="memitem:ga51575fca3165cdb022ed8ee0f12d8360"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__pdutils__macros.html#ga51575fca3165cdb022ed8ee0f12d8360">CY_PDUTILS_WORD_GET_LSB</a>(w)&#160;&#160;&#160;((uint8_t)((w) &amp; 0xFFU))</td></tr>
 <tr class="memdesc:ga51575fca3165cdb022ed8ee0f12d8360"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve the LSB from a WORD.  <a href="#ga51575fca3165cdb022ed8ee0f12d8360">More...</a><br /></td></tr>
 <tr class="separator:ga51575fca3165cdb022ed8ee0f12d8360"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac7c8320e4a0f143a6759018bfedc35a0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__pdutils__macros.html#gac7c8320e4a0f143a6759018bfedc35a0">CY_PDUTILS_BYTE_GET_UPPER_NIBBLE</a>(w)&#160;&#160;&#160;((uint8_t)(((w) &gt;&gt; 4) &amp; 0xF))</td></tr>
+<tr class="memitem:gac7c8320e4a0f143a6759018bfedc35a0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__pdutils__macros.html#gac7c8320e4a0f143a6759018bfedc35a0">CY_PDUTILS_BYTE_GET_UPPER_NIBBLE</a>(w)&#160;&#160;&#160;((uint8_t)(((w) &gt;&gt; 4) &amp; 0xFU))</td></tr>
 <tr class="memdesc:gac7c8320e4a0f143a6759018bfedc35a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve the upper nibble from a byte.  <a href="#gac7c8320e4a0f143a6759018bfedc35a0">More...</a><br /></td></tr>
 <tr class="separator:gac7c8320e4a0f143a6759018bfedc35a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6418ec4d43a68f1c8b08c3658acf4e71"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__pdutils__macros.html#ga6418ec4d43a68f1c8b08c3658acf4e71">CY_PDUTILS_BYTE_GET_LOWER_NIBBLE</a>(w)&#160;&#160;&#160;((uint8_t)((w) &amp; 0xF))</td></tr>
+<tr class="memitem:ga6418ec4d43a68f1c8b08c3658acf4e71"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__pdutils__macros.html#ga6418ec4d43a68f1c8b08c3658acf4e71">CY_PDUTILS_BYTE_GET_LOWER_NIBBLE</a>(w)&#160;&#160;&#160;((uint8_t)((w) &amp; 0xFU))</td></tr>
 <tr class="memdesc:ga6418ec4d43a68f1c8b08c3658acf4e71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve the lower nibble from a byte.  <a href="#ga6418ec4d43a68f1c8b08c3658acf4e71">More...</a><br /></td></tr>
 <tr class="separator:ga6418ec4d43a68f1c8b08c3658acf4e71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3291f9b3c8391dc44f0c82f0e53318f3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__pdutils__macros.html#ga3291f9b3c8391dc44f0c82f0e53318f3">CY_PDUTILS_DWORD_GET_BYTE0</a>(dw)&#160;&#160;&#160;((uint8_t)((dw) &amp; 0xFF))</td></tr>
+<tr class="memitem:ga3291f9b3c8391dc44f0c82f0e53318f3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__pdutils__macros.html#ga3291f9b3c8391dc44f0c82f0e53318f3">CY_PDUTILS_DWORD_GET_BYTE0</a>(dw)&#160;&#160;&#160;((uint8_t)((dw) &amp; 0xFFU))</td></tr>
 <tr class="memdesc:ga3291f9b3c8391dc44f0c82f0e53318f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve the LSB from a DWORD.  <a href="#ga3291f9b3c8391dc44f0c82f0e53318f3">More...</a><br /></td></tr>
 <tr class="separator:ga3291f9b3c8391dc44f0c82f0e53318f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga506b5ebf4a6f0b39e7be604a33c8eebb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__pdutils__macros.html#ga506b5ebf4a6f0b39e7be604a33c8eebb">CY_PDUTILS_DWORD_GET_BYTE1</a>(dw)&#160;&#160;&#160;((uint8_t)(((dw) &gt;&gt; 8) &amp; 0xFF))</td></tr>
+<tr class="memitem:ga506b5ebf4a6f0b39e7be604a33c8eebb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__pdutils__macros.html#ga506b5ebf4a6f0b39e7be604a33c8eebb">CY_PDUTILS_DWORD_GET_BYTE1</a>(dw)&#160;&#160;&#160;((uint8_t)(((dw) &gt;&gt; 8) &amp; 0xFFU))</td></tr>
 <tr class="memdesc:ga506b5ebf4a6f0b39e7be604a33c8eebb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve the bits 15-8 from a DWORD.  <a href="#ga506b5ebf4a6f0b39e7be604a33c8eebb">More...</a><br /></td></tr>
 <tr class="separator:ga506b5ebf4a6f0b39e7be604a33c8eebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga18a56d93c6ff95be5512b1e6e4aa6587"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__pdutils__macros.html#ga18a56d93c6ff95be5512b1e6e4aa6587">CY_PDUTILS_DWORD_GET_BYTE2</a>(dw)&#160;&#160;&#160;((uint8_t)(((dw) &gt;&gt; 16) &amp; 0xFF))</td></tr>
+<tr class="memitem:ga18a56d93c6ff95be5512b1e6e4aa6587"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__pdutils__macros.html#ga18a56d93c6ff95be5512b1e6e4aa6587">CY_PDUTILS_DWORD_GET_BYTE2</a>(dw)&#160;&#160;&#160;((uint8_t)(((dw) &gt;&gt; 16) &amp; 0xFFU))</td></tr>
 <tr class="memdesc:ga18a56d93c6ff95be5512b1e6e4aa6587"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve the bits 23-16 from a DWORD.  <a href="#ga18a56d93c6ff95be5512b1e6e4aa6587">More...</a><br /></td></tr>
 <tr class="separator:ga18a56d93c6ff95be5512b1e6e4aa6587"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad5c66c00b94531a3f8bc2bb50b547df0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__pdutils__macros.html#gad5c66c00b94531a3f8bc2bb50b547df0">CY_PDUTILS_DWORD_GET_BYTE3</a>(dw)&#160;&#160;&#160;((uint8_t)(((dw) &gt;&gt; 24) &amp; 0xFF))</td></tr>
+<tr class="memitem:gad5c66c00b94531a3f8bc2bb50b547df0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__pdutils__macros.html#gad5c66c00b94531a3f8bc2bb50b547df0">CY_PDUTILS_DWORD_GET_BYTE3</a>(dw)&#160;&#160;&#160;((uint8_t)(((dw) &gt;&gt; 24) &amp; 0xFFU))</td></tr>
 <tr class="memdesc:gad5c66c00b94531a3f8bc2bb50b547df0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve the MSB from a DWORD.  <a href="#gad5c66c00b94531a3f8bc2bb50b547df0">More...</a><br /></td></tr>
 <tr class="separator:gad5c66c00b94531a3f8bc2bb50b547df0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga48735a3f09b688d2f48bb448f66ce67a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__pdutils__macros.html#ga48735a3f09b688d2f48bb448f66ce67a">CY_PDUTILS_MEM_COPY</a>(dest,  src,  size)&#160;&#160;&#160;memcpy ((uint8_t *)(dest), (uint8_t *)(src), (size))</td></tr>
@@ -198,9 +198,6 @@ Macros</h2></td></tr>
 <tr class="memitem:ga1049a3c72fc7a1bd9131c1fce9f91d9d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__pdutils__macros.html#ga1049a3c72fc7a1bd9131c1fce9f91d9d">CY_PDUTILS_TIMER_HW_MAX_TIMEOUT</a>&#160;&#160;&#160;(0xFFC0u)</td></tr>
 <tr class="memdesc:ga1049a3c72fc7a1bd9131c1fce9f91d9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum timeout value allowed.  <a href="#ga1049a3c72fc7a1bd9131c1fce9f91d9d">More...</a><br /></td></tr>
 <tr class="separator:ga1049a3c72fc7a1bd9131c1fce9f91d9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa5273833419eeb081a230e281674451f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__pdutils__macros.html#gaa5273833419eeb081a230e281674451f">CY_PDUTILS_TIMER_OVERRUN_THRESHOLD</a>&#160;&#160;&#160;(5u)</td></tr>
-<tr class="memdesc:gaa5273833419eeb081a230e281674451f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time covers the worst-case interrupt latency for the timer interrupt handler.  <a href="#gaa5273833419eeb081a230e281674451f">More...</a><br /></td></tr>
-<tr class="separator:gaa5273833419eeb081a230e281674451f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga607af3956cc2b35c958f0a9028415a1a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__pdutils__macros.html#ga607af3956cc2b35c958f0a9028415a1a">CY_PDUTILS_TIMER_NUM_TICK_COUNTS</a>&#160;&#160;&#160;(0x10000u)</td></tr>
 <tr class="memdesc:ga607af3956cc2b35c958f0a9028415a1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer counter size in the number of ticks.  <a href="#ga607af3956cc2b35c958f0a9028415a1a">More...</a><br /></td></tr>
 <tr class="separator:ga607af3956cc2b35c958f0a9028415a1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -501,7 +498,7 @@ Macros</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">w</td><td>)</td>
-          <td>&#160;&#160;&#160;((uint8_t)((w) &amp; 0xFF))</td>
+          <td>&#160;&#160;&#160;((uint8_t)((w) &amp; 0xFFU))</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -521,7 +518,7 @@ Macros</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">w</td><td>)</td>
-          <td>&#160;&#160;&#160;((uint8_t)(((w) &gt;&gt; 4) &amp; 0xF))</td>
+          <td>&#160;&#160;&#160;((uint8_t)(((w) &gt;&gt; 4) &amp; 0xFU))</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -541,7 +538,7 @@ Macros</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">w</td><td>)</td>
-          <td>&#160;&#160;&#160;((uint8_t)((w) &amp; 0xF))</td>
+          <td>&#160;&#160;&#160;((uint8_t)((w) &amp; 0xFU))</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -561,7 +558,7 @@ Macros</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">dw</td><td>)</td>
-          <td>&#160;&#160;&#160;((uint8_t)((dw) &amp; 0xFF))</td>
+          <td>&#160;&#160;&#160;((uint8_t)((dw) &amp; 0xFFU))</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -581,7 +578,7 @@ Macros</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">dw</td><td>)</td>
-          <td>&#160;&#160;&#160;((uint8_t)(((dw) &gt;&gt; 8) &amp; 0xFF))</td>
+          <td>&#160;&#160;&#160;((uint8_t)(((dw) &gt;&gt; 8) &amp; 0xFFU))</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -601,7 +598,7 @@ Macros</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">dw</td><td>)</td>
-          <td>&#160;&#160;&#160;((uint8_t)(((dw) &gt;&gt; 16) &amp; 0xFF))</td>
+          <td>&#160;&#160;&#160;((uint8_t)(((dw) &gt;&gt; 16) &amp; 0xFFU))</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -621,7 +618,7 @@ Macros</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">dw</td><td>)</td>
-          <td>&#160;&#160;&#160;((uint8_t)(((dw) &gt;&gt; 24) &amp; 0xFF))</td>
+          <td>&#160;&#160;&#160;((uint8_t)(((dw) &gt;&gt; 24) &amp; 0xFFU))</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -978,23 +975,6 @@ Macros</h2></td></tr>
 
 <p>Maximum timeout value allowed. </p>
 <p>This value comprehends the maximum interrupt latencies so as not to overrun. Providing for a worst-case number, 64 ticks is used. </p>
-
-</div>
-</div>
-<a id="gaa5273833419eeb081a230e281674451f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaa5273833419eeb081a230e281674451f">&#9670;&nbsp;</a></span>CY_PDUTILS_TIMER_OVERRUN_THRESHOLD</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define CY_PDUTILS_TIMER_OVERRUN_THRESHOLD&#160;&#160;&#160;(5u)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Time covers the worst-case interrupt latency for the timer interrupt handler. </p>
-<p>Considering the worst case timing of 100 us. </p>
 
 </div>
 </div>
